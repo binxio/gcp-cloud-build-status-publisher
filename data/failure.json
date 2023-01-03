@@ -1,0 +1,79 @@
+{
+  "id": "67d8aa4f-7b64-4978-bba0-665fb45d9c32",
+  "status": "FAILURE",
+  "source": {
+    "repoSource": {
+      "projectId": "your-project",
+      "repoName": "deployment",
+      "branchName": "main"
+    }
+  },
+  "createTime": "2022-12-05T11:01:57.089652655Z",
+  "startTime": "2022-12-05T11:01:57.772755919Z",
+  "finishTime": "2022-12-05T11:02:08.633108098Z",
+  "results": {
+    "buildStepImages": [
+      "sha256:a22381b6b42f5eb7f70d5a26ecbae1444d98f70263c759a55a3126d45b350b6a"
+    ],
+    "buildStepOutputs": [
+      ""
+    ]
+  },
+  "steps": [
+    {
+      "name": "gcr.io/cloud-builders/git",
+      "args": [
+        "-c",
+        "echo 'hello world!'"
+      ],
+      "entrypoint": "bash",
+      "timing": {
+        "startTime": "2022-12-05T11:02:04.338032442Z",
+        "endTime": "2022-12-05T11:02:08.182616725Z"
+      },
+      "status": "FAILURE",
+      "pullTiming": {
+        "startTime": "2022-12-05T11:02:04.338032442Z",
+        "endTime": "2022-12-05T11:02:04.339300002Z"
+      },
+      "exitCode": 128
+    }
+  ],
+  "timeout": "600s",
+  "projectId": "your-project",
+  "logsBucket": "gs://your-project.cloudbuild-logs.googleusercontent.com",
+  "sourceProvenance": {
+    "resolvedRepoSource": {
+      "projectId": "your-project",
+      "repoName": "deployment",
+      "commitSha": "f7cea1dd59cf386de4f355ef4246f810abd8e5de"
+    }
+  },
+  "buildTriggerId": "bd430391-7848-4434-9941-c7c460ed9cf7",
+  "options": {
+    "substitutionOption": "ALLOW_LOOSE",
+    "logging": "LEGACY",
+    "dynamicSubstitutions": true,
+    "pool": {}
+  },
+  "logUrl": "https://console.cloud.google.com/cloud-build/builds/67d8aa4f-7b64-4978-bba0-665fb45d9c32?project\u003dyour-project",
+  "tags": [
+    "trigger-bd430391-7848-4434-9941-c7c460ed9cf7"
+  ],
+  "timing": {
+    "FETCHSOURCE": {
+      "startTime": "2022-12-05T11:01:58.213275569Z",
+      "endTime": "2022-12-05T11:02:03.765377668Z"
+    },
+    "BUILD": {
+      "startTime": "2022-12-05T11:02:03.765440712Z",
+      "endTime": "2022-12-05T11:02:08.182694423Z"
+    }
+  },
+  "queueTtl": "3600s",
+  "name": "projects/your-project/locations/global/builds/67d8aa4f-7b64-4978-bba0-665fb45d9c32",
+  "failureInfo": {
+    "type": "USER_BUILD_STEP",
+    "detail": "Build step failure: build step 0 \"gcr.io/cloud-builders/git\" failed: step exited with non-zero status: 128"
+  }
+}

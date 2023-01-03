@@ -23,3 +23,20 @@ The metric is associated with a [generic task](https://cloud.google.com/monitori
 * task_id, build id
 
 **Remark** Note that old events (>24h) are discarded, as they are rejected by Cloud Monitoring.
+
+## Contributing
+
+Feel free to submit a PR or fork and alter the code.
+
+For local development, use `Make` to set up your environment.
+
+```bash
+make venv
+PROJECT=your-google-project PORT=8080 make run
+```
+
+Now invoke the service by submitting a pub/sub payload to localhost:8080. An example payload is found in the `data`-folder.
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d @data/pubsub_build_failure.json http://localhost:8080/
+```
