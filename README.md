@@ -29,9 +29,17 @@ The metric is associated with a [generic task](https://cloud.google.com/monitori
 Use Terraform to configure the build status publishers in your environment.
 
 ```bash
-cd terraform
+cd terraform/status-publisher
 terraform init
-terraform apply -var='project_id="my-project-id"' -var='region="europe-west1"'
+terraform apply -var='project_id="build-project-id"' -var='region="europe-west1"'
+```
+
+Next, use Terraform to configure an alert for failed builds.
+
+```bash
+cd terraform/status-monitor
+terraform init
+terraform apply -var='project_id="monitoring-project-id"' -var='monitored_projects=["build-project-id"]' -var='notification_email="laurens@binx.io"'
 ```
 
 ## Contributing
