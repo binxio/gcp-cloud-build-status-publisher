@@ -24,6 +24,16 @@ The metric is associated with a [generic task](https://cloud.google.com/monitori
 
 **Remark** Note that old events (>24h) are discarded, as they are rejected by Cloud Monitoring.
 
+## Deployment
+
+Use Terraform to configure the build status publishers in your environment.
+
+```bash
+cd terraform
+terraform init
+terraform apply -var='project_id="my-project-id"' -var='region="europe-west1"'
+```
+
 ## Contributing
 
 Feel free to submit a PR or fork and alter the code.
