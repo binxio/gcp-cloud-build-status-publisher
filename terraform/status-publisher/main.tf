@@ -81,6 +81,12 @@ resource "google_cloud_run_service" "build_status_publisher" {
     latest_revision = true
   }
 
+  metadata {
+    annotations = {
+      "run.googleapis.com/ingress" = "internal"
+    }
+  }
+
   autogenerate_revision_name = true
 }
 
