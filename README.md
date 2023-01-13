@@ -29,7 +29,7 @@ The metric is associated with a [generic task](https://cloud.google.com/monitori
 Use Terraform to configure the build status publishers in your environment.
 
 ```bash
-cd terraform
+cd terraform/status-publisher
 terraform init
 terraform apply -var='project_id="my-project-id"' -var='region="europe-west1"'
 ```

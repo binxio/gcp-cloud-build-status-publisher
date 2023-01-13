@@ -9,12 +9,11 @@ resource "google_pubsub_topic" "cloud_builds" {
   name    = "cloud-builds"
 }
 
-
 ## Status publisher subscription
 resource "google_pubsub_subscription" "cloud_builds_status_listener" {
   project              = var.project_id
   name                 = "cloud-builds-status"
-  topic                = google_pubsub_topic.cloud_builds.name
+  topic                = "cloud-builds"
   ack_deadline_seconds = 60
 
   push_config {
@@ -24,6 +23,11 @@ resource "google_pubsub_subscription" "cloud_builds_status_listener" {
       service_account_email = google_service_account.build_status_listener.email
     }
   }
+
+  depends_on = [
+    data.google_pubsub_topic.cloud_builds,
+    google_pubsub_topic.cloud_builds,
+  ]
 }
 
 resource "google_service_account" "build_status_listener" {
