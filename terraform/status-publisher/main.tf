@@ -107,3 +107,31 @@ resource "google_project_iam_member" "build_status_publisher_metric_writer" {
   role    = "roles/monitoring.metricWriter"
   member  = "serviceAccount:${google_service_account.build_status_publisher.email}"
 }
+
+# Configure status metric metadata
+resource "google_monitoring_metric_descriptor" "build_status" {
+  project      = var.project_id
+  type         = "custom.googleapis.com/build/status_count"  
+  display_name = "build-status"
+  description  = "Build status records for all Cloud Build builds."
+  metric_kind  = "GAUGE"
+  value_type   = "INT64"
+
+  labels {
+    description = "Build status e.g. queued, working, failure, succeeded"
+    key = "status"
+    value_type = "STRING"
+  }
+
+  labels {
+    description = "Optional, error code. Set when status is failure."
+    key = "failure_type"
+    value_type = "STRING"
+  }
+
+  labels {
+    description = "Optional, error details formatted as JSON string. Set when status is failure."
+    key = "failure_detail"
+    value_type = "STRING"
+  }
+}
