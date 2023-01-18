@@ -38,7 +38,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
     content   = <<EOT
     A build has failed!
     
-    Troublsheet and resolve using the logs: https://console.cloud.google.com/cloud-build/builds/$${resource.label.task_id}?project=$${resource.label.namespace}
+    Troubleshoot and resolve using the logs: https://console.cloud.google.com/cloud-build/builds/$${resource.label.task_id}?project=$${resource.label.namespace}
     EOT
   }
 
