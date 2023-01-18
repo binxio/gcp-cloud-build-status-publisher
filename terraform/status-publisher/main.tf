@@ -25,7 +25,6 @@ resource "google_pubsub_subscription" "cloud_builds_status_listener" {
   }
 
   depends_on = [
-    data.google_pubsub_topic.cloud_builds,
     google_pubsub_topic.cloud_builds,
   ]
 }
